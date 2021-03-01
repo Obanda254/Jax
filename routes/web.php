@@ -28,8 +28,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/items', function (){
-    return Inertia::render('items');
-})->name('items');
+Route::get('/intro', function (){
+    return Inertia::render('intro');
+});
 
 Route::resource('/items', 'ItemController');
