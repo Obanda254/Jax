@@ -12,8 +12,6 @@
     components: {
       Layout,
     },
-    props: {
-      user: Object,
-    },
+    props: ['user'],
   }
 </script>

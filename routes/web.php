@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,5 @@ Route::get('/intro', function (){
     return Inertia::render('intro');
 });
 
-Route::resource('/items', 'ItemController');
+Route::get('/users', [UsersController::class, 'index']);
+Route::get('/users/create', [UsersController::class, 'create']);

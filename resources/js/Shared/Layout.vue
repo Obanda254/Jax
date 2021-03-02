@@ -19,7 +19,7 @@
                 </svg>
                 <!-- Icon when menu is open. -->
                 <!--
-                    Heroicon name: outline/x
+                    Heroicon name: outline/x 
 
                     Menu open: "block", Menu closed: "hidden"
                 -->
@@ -33,7 +33,7 @@
                 <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                    <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="/users" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Users</a>
                     <a href="/Pages/PrivacyPolicy" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
                     <a href="/TermsOfService" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact Us</a>
                 </div>
