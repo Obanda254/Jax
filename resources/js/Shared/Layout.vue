@@ -58,7 +58,6 @@
                 </div>
                 <!--
                     Profile dropdown panel, show/hide based on dropdown state.
-
                     Entering: "transition ease-out duration-100"
                     From: "transform opacity-0 scale-95"
                     To: "transform opacity-100 scale-100"
@@ -107,5 +106,6 @@ export default {
             },
         },
     },
+    inject: ['page'],
 }
 </script>
