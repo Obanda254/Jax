@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +35,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/items', function (){
     return Inertia::render('items');
 })->name('items');
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/users', function (){
-//     return Inertia::render('users');
-// })->name('users');
-
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/users/create', [UsersController::class, 'create']);
 Route::post('/users', [UsersController::class, 'store'])->name('users.index');
@@ -45,3 +42,7 @@ Route::post('/users', [UsersController::class, 'store'])->name('users.index');
 Route::get('/items', [ItemController::class, 'index'])->name('items');
 Route::get('/items/create', [ItemController::class, 'create']);
 Route::post('/items', [ItemController::class, 'store'])->name('items.index');
+
+Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchases');
+Route::get('/purchases/create', [PurchaseController::class, 'create']);
+Route::post('/purchases', [PurchaseController::class, 'store'])->name('purchases.index');

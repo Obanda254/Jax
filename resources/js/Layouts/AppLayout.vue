@@ -24,7 +24,10 @@
                                     Items
                                 </jet-nav-link>
                                 <jet-nav-link :href="route('users')" :active="route().current('users')">
-                                    users
+                                    Users
+                                </jet-nav-link>
+                                <jet-nav-link :href="route('purchases')" :active="route().current('purchases')">
+                                    Purchases
                                 </jet-nav-link>
                             </div>
                         </div>

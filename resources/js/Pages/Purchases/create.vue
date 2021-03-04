@@ -6,7 +6,7 @@
             <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
                 <p class="mt-1 text-sm text-gray-600">
-                Create a new item here.
+                Create a new purchse here.
                 </p>
             </div>
             </div>
@@ -21,7 +21,7 @@
                     </span>
                 </div>        
             </div>    
-            <form action="/items" method="POST" @submit.prevent="createItem">
+            <form action="/purchase" method="POST" @submit.prevent="createPurchase">
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                     <div class="grid grid-cols-3 gap-6">
@@ -37,7 +37,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- <div class="grid grid-cols-3 gap-6">
                         <div class="col-span-3 sm:col-span-2">
                         <label for="about" class="block text-sm font-medium text-gray-700">

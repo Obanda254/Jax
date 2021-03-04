@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Items
+                Purchase
             </h2>
         </template>
 
@@ -27,7 +27,7 @@
                             
                             <div class="my-5">
                                 <button type="button"  class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                <a  href="/items/create" >Add new item</a>
+                                <a  href="/purchases/create" >Add new Purchase</a>
                                 </button>
                             
                             </div>
@@ -35,16 +35,16 @@
                             <thead class="bg-gray-50">
                                 <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Name
+                                    Crearion Date
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Present Since
+                                    Quantity
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Status
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Action
+                                    Cost
                                 </th>
                                 <th scope="col" class="relative px-6 py-3">
                                     <span class="sr-only">Edit</span>
@@ -57,18 +57,21 @@
                                     <div class="flex items-center">
                                     <div class="ml-4">
                                         <div class="text-sm font-medium text-gray-900">
-                                        {{ x.name }}
+                                        {{ x.purchase_date }}
                                         </div>
                                     </div>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">                                    
-                                    {{ x.created_at }}                                   
+                                    {{ x.quantity }}                                   
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                     <div class="text-sm text-gray-900">Available </div>
                                     </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">                                    
+                                    {{ x.cost }}                                   
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -95,6 +98,6 @@
             AppLayout,
             
         },
-        props: ['items', 'successMessage'],
+        props: ['purchases', 'successMessage'],
     }
 </script>
