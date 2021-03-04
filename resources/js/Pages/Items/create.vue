@@ -6,7 +6,7 @@
             <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
                 <p class="mt-1 text-sm text-gray-600">
-                Create a new user here.
+                Create a new item here.
                 </p>
             </div>
             </div>
@@ -21,7 +21,7 @@
                     </span>
                 </div>        
             </div>    
-            <form action="/users" method="POST" @submit.prevent="createUser">
+            <form action="/items" method="POST" @submit.prevent="createItem">
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                     <div class="grid grid-cols-3 gap-6">
@@ -31,14 +31,14 @@
                             </label>
                             <div class="mt-1 flex rounded-md shadow-sm">
                             <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                                Mr/Ms
+                                Item:
                             </span>
                             <input type="text" v-model="form.name" name="name" id="name" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="Jon Doe">
                             </div>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-6">
+                    <!-- <div class="grid grid-cols-3 gap-6">
                         <div class="col-span-3 sm:col-span-2">
                         <label for="about" class="block text-sm font-medium text-gray-700">
                             Email:
@@ -64,7 +64,7 @@
                         </span>
                             
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -94,14 +94,12 @@
         return {
             form: {
                 name:'',
-                email:'',
-                password:'',
             }
         }
     },
     methods: {
-        createUser() {
-            this.$inertia.post('/users', this.form)
+        createItem() {
+            this.$inertia.post('/items', this.form)
             .then(() => {
                 //code
             })

@@ -23,6 +23,9 @@
                                 <jet-nav-link :href="route('items')" :active="route().current('items')">
                                     Items
                                 </jet-nav-link>
+                                <jet-nav-link :href="route('users')" :active="route().current('users')">
+                                    users
+                                </jet-nav-link>
                             </div>
                         </div>
                         <div class="hidden sm:flex sm:items-center sm:ml-6">

@@ -16,6 +16,12 @@
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                             
+                            <div class="my-5">
+                                <button type="button"  class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                <a  href="/items/create" >Add new item</a>
+                                </button>
+                            
+                            </div>
                             <table class="table-fixed w-full">
                             <thead class="bg-gray-50">
                                 <tr>
@@ -107,43 +113,46 @@
     export default {
         components: {
             AppLayout,
+            
         },
-        data(){
-            return{
-                items:[],
-                item:{
-                    name:''
-                }
-            }
-        },
-        methods:{
-            async addItem(){
-                const res = await axios.post('/api/items', this.item)
+        props: ['items', 'successMessage'],
+        
+    //     data(){
+    //         return{
+    //             items:[],
+    //             item:{
+    //                 name:''
+    //             }
+    //         }
+    //     },
+    //     methods:{
+    //         async addItem(){
+    //             const res = await axios.post('/api/items', this.item)
 
-                if(res.status === 201) {
-                    Toast.fire({
-                        icon:'success',
-                        title:res.data
-                    })
-                    document.getElementById('itemForm').reset()
-                    $("#addItem").modal('hide')
-                    // this.$emit('addedItem')
-                }
-            },
-            getItems(){
-                axios.get('/api/items')
-                .then((res) => {
-                    this.items = res.data
-                }).catch((err) => {
-                    console.log(err)
-                });
-            },
-        },
-        created(){
-            this.getItems()
-            // this.$on('addedItem', ()=>{
-            //     this.getItems()
-            // })
-        }
+    //             if(res.status === 201) {
+    //                 Toast.fire({
+    //                     icon:'success',
+    //                     title:res.data
+    //                 })
+    //                 document.getElementById('itemForm').reset()
+    //                 $("#addItem").modal('hide')
+    //                 // this.$emit('addedItem')
+    //             }
+    //         },
+    //         getItems(){
+    //             axios.get('/api/items')
+    //             .then((res) => {
+    //                 this.items = res.data
+    //             }).catch((err) => {
+    //                 console.log(err)
+    //             });
+    //         },
+    //     },
+    //     created(){
+    //         this.getItems()
+    //         // this.$on('addedItem', ()=>{
+    //         //     this.getItems()
+    //         // })
+    //     }
     }
 </script>

@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +30,18 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/intro', function (){
-    return Inertia::render('intro');
-});
+Route::middleware(['auth:sanctum', 'verified'])->get('/items', function (){
+    return Inertia::render('items');
+})->name('items');
 
-Route::get('/users', [UsersController::class, 'index']);
+// Route::middleware(['auth:sanctum', 'verified'])->get('/users', function (){
+//     return Inertia::render('users');
+// })->name('users');
+
+Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/users/create', [UsersController::class, 'create']);
 Route::post('/users', [UsersController::class, 'store'])->name('users.index');
+
+Route::get('/items', [ItemController::class, 'index'])->name('items');
+Route::get('/items/create', [ItemController::class, 'create']);
+Route::post('/items', [ItemController::class, 'store'])->name('items.index');
