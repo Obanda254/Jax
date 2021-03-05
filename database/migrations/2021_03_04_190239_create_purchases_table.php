@@ -15,6 +15,7 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
+            $table->string('item');
             $table->foreignId('item_id')->index();
             $table->dateTime('purchase_date');
             $table->bigInteger('quantity');

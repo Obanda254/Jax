@@ -21,22 +21,38 @@
                     </span>
                 </div>        
             </div>    
-            <form action="/purchase" method="POST" @submit.prevent="createPurchase">
+            <form action="/purchases" method="POST" @submit.prevent="createPurchase">
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                     <div class="grid grid-cols-3 gap-6">
                         <div class="col-span-3 sm:col-span-2">
-                            <label for="name" class="block text-sm font-medium text-gray-700">
-                            Name:
+                            <label for="item" class="block text-sm font-medium text-gray-700">
+                            item:
                             </label>
                             <div class="mt-1 flex rounded-md shadow-sm">
                             <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
                                 Item:
                             </span>
-                            <input type="text" v-model="form.name" name="name" id="name" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="Item_name">
+                            
+                                <select v-model="purchases.item" name="item" id="item" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="Select the item">
+                                    <option :value="y.name" v-for="y in items" :key="y.id">{{ y.name }} </option>
+                                </select>
+                           
+                            </div>
+                        </div>
+                        <div class="col-span-3 sm:col-span-2">
+                            <label for="quantity" class="block text-sm font-medium text-gray-700">
+                            Quantity:
+                            </label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                            <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                Kg:
+                            </span>
+                            <input type="number" v-model="form.quantity" name="quantity" id="quantity" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="number">
                             </div>
                         </div>
                     </div>
+
                     <!-- <div class="grid grid-cols-3 gap-6">
                         <div class="col-span-3 sm:col-span-2">
                         <label for="about" class="block text-sm font-medium text-gray-700">
@@ -87,18 +103,22 @@
     },
     props: {
         errors: Object,
+        items:'name'
     },
 
     data() {
         return {
             form: {
-                name:'',
+                item: '',
+                purchase_date:'',
+                quantity:'',
+                cost:''
             }
         }
     },
     methods: {
-        createItem() {
-            this.$inertia.post('/items', this.form)
+        createPurchase() {
+            this.$inertia.post('/purchases', this.form)
             .then(() => {
                 //code
             })

@@ -11,7 +11,7 @@ class Purchase extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['quantity','cost'];
+    protected $fillable = ['item','quantity','cost'];
     /**
      * The attributes that should be cast to native types.
      *

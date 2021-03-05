@@ -18300,18 +18300,22 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default
   },
   props: {
-    errors: Object
+    errors: Object,
+    items: 'name'
   },
   data: function data() {
     return {
       form: {
-        name: ''
+        item: '',
+        purchase_date: '',
+        quantity: '',
+        cost: ''
       }
     };
   },
   methods: {
-    createItem: function createItem() {
-      this.$inertia.post('/items', this.form).then(function () {//code
+    createPurchase: function createPurchase() {
+      this.$inertia.post('/purchases', this.form).then(function () {//code
       });
     }
   }
@@ -23856,9 +23860,9 @@ var _hoisted_12 = {
 };
 
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
-  "for": "name",
+  "for": "item",
   "class": "block text-sm font-medium text-gray-700"
-}, " Name: ", -1
+}, " item: ", -1
 /* HOISTED */
 );
 
@@ -23872,7 +23876,28 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_16 = {
+  "class": "col-span-3 sm:col-span-2"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+  "for": "quantity",
+  "class": "block text-sm font-medium text-gray-700"
+}, " Quantity: ", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = {
+  "class": "mt-1 flex rounded-md shadow-sm"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
+  "class": "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+}, " Kg: ", -1
+/* HOISTED */
+);
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "px-4 py-3 bg-gray-50 text-right sm:px-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
   type: "submit",
@@ -23889,23 +23914,42 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [Object.keys($props.errors).length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors[Object.keys($props.errors)[0]]), 1
       /* TEXT */
       ), _hoisted_8])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
-        action: "/purchase",
+        action: "/purchases",
         method: "POST",
-        onSubmit: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-          return _ctx.createPurchase && _ctx.createPurchase.apply(_ctx, arguments);
+        onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+          return $options.createPurchase && $options.createPurchase.apply($options, arguments);
         }, ["prevent"]))
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-        type: "text",
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("select", {
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-          return $data.form.name = $event;
+          return _ctx.purchases.item = $event;
         }),
-        name: "name",
-        id: "name",
+        name: "item",
+        id: "item",
         "class": "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300",
-        placeholder: "Item_name"
+        placeholder: "Select the item"
+      }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.items, function (y) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("option", {
+          value: y.name,
+          key: y.id
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(y.name), 9
+        /* TEXT, PROPS */
+        , ["value"]);
+      }), 128
+      /* KEYED_FRAGMENT */
+      ))], 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, _ctx.purchases.item]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+        type: "number",
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+          return $data.form.quantity = $event;
+        }),
+        name: "quantity",
+        id: "quantity",
+        "class": "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300",
+        placeholder: "number"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.name]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"grid grid-cols-3 gap-6\">\r\n                        <div class=\"col-span-3 sm:col-span-2\">\r\n                        <label for=\"about\" class=\"block text-sm font-medium text-gray-700\">\r\n                            Email:\r\n                        </label>\r\n                        <div class=\"mt-1 flex rounded-md shadow-sm\">\r\n                            <input type=\"text\" v-model=\"form.email\" name=\"email\" id=\"email\" class=\"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300\" placeholder=\"example@email.com\">\r\n                        </div>\r\n                        <p class=\"mt-2 text-sm text-gray-500\">\r\n                            Provide your email address the the field above.\r\n                        </p>\r\n                        </div>\r\n                    </div>\r\n                    <div >\r\n                        <div class=\"col-span-3 sm:col-span-2\">\r\n                            <label class=\"block text-sm font-medium text-gray-700\">\r\n                                Password\r\n                            </label>\r\n                        </div>\r\n                        <div class=\"mt-1 flex rounded-md shadow-sm\">\r\n                        <span class=\"inline-block rounded-full bg-gray-100\">\r\n                        <input type=\"password\" v-model=\"form.password\" name=\"password\" id=\"password\" class=\"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-l-md rounded-r-md sm:text-sm border-gray-300\" placeholder=\"\">\r\n\r\n                        </span>\r\n                            \r\n                        </div>\r\n                    </div> ")]), _hoisted_16])], 32
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.quantity]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"grid grid-cols-3 gap-6\">\r\n                        <div class=\"col-span-3 sm:col-span-2\">\r\n                        <label for=\"about\" class=\"block text-sm font-medium text-gray-700\">\r\n                            Email:\r\n                        </label>\r\n                        <div class=\"mt-1 flex rounded-md shadow-sm\">\r\n                            <input type=\"text\" v-model=\"form.email\" name=\"email\" id=\"email\" class=\"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300\" placeholder=\"example@email.com\">\r\n                        </div>\r\n                        <p class=\"mt-2 text-sm text-gray-500\">\r\n                            Provide your email address the the field above.\r\n                        </p>\r\n                        </div>\r\n                    </div>\r\n                    <div >\r\n                        <div class=\"col-span-3 sm:col-span-2\">\r\n                            <label class=\"block text-sm font-medium text-gray-700\">\r\n                                Password\r\n                            </label>\r\n                        </div>\r\n                        <div class=\"mt-1 flex rounded-md shadow-sm\">\r\n                        <span class=\"inline-block rounded-full bg-gray-100\">\r\n                        <input type=\"password\" v-model=\"form.password\" name=\"password\" id=\"password\" class=\"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-l-md rounded-r-md sm:text-sm border-gray-300\" placeholder=\"\">\r\n\r\n                        </span>\r\n                            \r\n                        </div>\r\n                    </div> ")]), _hoisted_20])], 32
       /* HYDRATE_EVENTS */
       )])])])];
     }),
