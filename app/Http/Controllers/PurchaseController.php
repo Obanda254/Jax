@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Item;
 use Inertia\Inertia;
 use App\Models\Purchase;
 use Illuminate\Http\Request;
@@ -28,7 +29,11 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Purchases/create');
+        $items = Item::all();
+
+        return Inertia::render('Purchases/create', [
+            'items' => $items,
+        ]);
     }
 
     /**

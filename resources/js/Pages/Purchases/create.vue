@@ -34,7 +34,8 @@
                                 Item:
                             </span>
                             
-                                <select v-model="purchases.item" name="item" id="item" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="Select the item">
+                                <select v-model="form.item" name="item" id="item" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="Select the item">
+                                    <option selected disabled>Select the Item</option>
                                     <option :value="y.name" v-for="y in items" :key="y.id">{{ y.name }} </option>
                                 </select>
                            
@@ -51,35 +52,40 @@
                             <input type="number" v-model="form.quantity" name="quantity" id="quantity" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="number">
                             </div>
                         </div>
-                    </div>
-
-                    <!-- <div class="grid grid-cols-3 gap-6">
                         <div class="col-span-3 sm:col-span-2">
-                        <label for="about" class="block text-sm font-medium text-gray-700">
-                            Email:
-                        </label>
-                        <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="text" v-model="form.email" name="email" id="email" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300" placeholder="example@email.com">
-                        </div>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Provide your email address the the field above.
-                        </p>
-                        </div>
-                    </div>
-                    <div >
-                        <div class="col-span-3 sm:col-span-2">
-                            <label class="block text-sm font-medium text-gray-700">
-                                Password
+                            <label for="purchase_date" class="block text-sm font-medium text-gray-700">
+                            Purchase Date:
                             </label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                            <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                Date:
+                            </span>
+                            <input type="date" v-model="form.purchase_date" name="purchase_date" id="purchase_date" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="Select purchase date">
+                            </div>
                         </div>
-                        <div class="mt-1 flex rounded-md shadow-sm">
-                        <span class="inline-block rounded-full bg-gray-100">
-                        <input type="password" v-model="form.password" name="password" id="password" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-l-md rounded-r-md sm:text-sm border-gray-300" placeholder="">
+                        <div class="col-span-3 sm:col-span-2">
+                            <label for="cost" class="block text-sm font-medium text-gray-700">
+                            Cost:
+                            </label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                                <!-- <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"> -->
+                                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                    $
+                                </span>
+                                <!-- </div> -->
+                                <input type="number" v-model="form.cost" name="cost" id="cost" step="0.01" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full sm:text-sm border-gray-300" placeholder="0.00">
+                                <div class="inset-y-0 right-0 inline-flex items-center">
+                                <label for="currency" class="sr-only">Currency</label>
+                                <select id="currency" name="currency" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-gray-300 bg-transparent text-gray-500 sm:text-sm rounded-r-md">
+                                    <option>KSH</option>
+                                    <option>USD</option>
+                                    <option>EUR</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
 
-                        </span>
-                            
-                        </div>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -103,7 +109,7 @@
     },
     props: {
         errors: Object,
-        items:'name'
+        items: Object
     },
 
     data() {
