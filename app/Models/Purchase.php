@@ -12,7 +12,7 @@ class Purchase extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['item','quantity','cost','item_id'];
+    protected $fillable = ['item_id','purchase_date','quantity','cost'];
     /**
      * The attributes that should be cast to native types.
      *
@@ -24,6 +24,8 @@ class Purchase extends Model
 
     //on deleteion of entry
     protected $dates = ['deleted_at'];
+
+    // protected $table = "purchases";
 
     public function Item()
     {

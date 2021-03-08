@@ -34,8 +34,8 @@
                             <table class="table-fixed w-full">
                             <thead class="bg-gray-50">
                                 <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Crearion Date
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider overflow-hidden">
+                                    Purchase Date
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Quantity
@@ -46,13 +46,16 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Cost
                                 </th>
+                                <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Item
+                                </th> -->
                                 <th scope="col" class="relative px-6 py-3">
                                     <span class="sr-only">Edit</span>
                                 </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                                <tr v-for="x in items" :key="x.id">
+                                <tr v-for="x in purchases" :key="x.id">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                     <div class="ml-4">

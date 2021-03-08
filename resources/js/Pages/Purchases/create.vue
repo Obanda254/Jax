@@ -34,9 +34,9 @@
                                 Item:
                             </span>
                             
-                                <select v-model="form.item" name="item" id="item" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="Select the item">
+                                <select v-model="form.item_id" name="item_id" id="item_id" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-r-md sm:text-sm border-gray-300" placeholder="Select the item">
                                     <option selected disabled>Select the Item</option>
-                                    <option :value="y.name" v-for="y in items" :key="y.id">{{ y.name }} </option>
+                                    <option :value="y.id" v-for="y in items" :key="y.id">{{ y.name }} </option>
                                 </select>
                            
                             </div>

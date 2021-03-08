@@ -17,6 +17,8 @@ class Item extends Model
     // action on delete of record
     protected $dates = ['deleted_at'];
 
+    protected $table = "items";
+
     public function purchases()
     {
         return $this->hasMany(Purchase::class);

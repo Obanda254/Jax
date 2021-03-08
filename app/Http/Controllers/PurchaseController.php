@@ -45,14 +45,15 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'item'=>'required',
+            // 'item'=>'required',
+            'item_id' => 'required',
             'purchase_date' => 'required|date',
             'quantity' => 'required',
             'cost' => 'required'
         ]);
 
         Purchase::create([
-            'item'=> $request->item,
+            'item_id'=> $request->item_id,
             'purchase_date' => $request->purchase_date,
             'quantity' => $request->quantity,
             'cost' => $request->cost,
