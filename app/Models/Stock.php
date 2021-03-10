@@ -6,19 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Sale extends Model
+class Stock extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['item_id','sale_date','quantity','price'];
+    protected $fillable = ['item_id','stock_date','quantity','type'];
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [
-        'sale_date' => 'datetime',
+        'stock_date' => 'datetime',
     ];
 
     //on deleteion of entry

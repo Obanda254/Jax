@@ -23,6 +23,9 @@
                                 <jet-nav-link :href="route('items')" :active="route().current('items')">
                                     Items
                                 </jet-nav-link>
+                                <jet-nav-link :href="route('stocks')" :active="route().current('stocks')">
+                                    Stocks
+                                </jet-nav-link>
                                 <jet-nav-link :href="route('users')" :active="route().current('users')">
                                     Users
                                 </jet-nav-link>

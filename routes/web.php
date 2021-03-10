@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PurchaseController;
 
@@ -51,3 +52,7 @@ Route::post('/purchases', [PurchaseController::class, 'store'])->name('purchases
 Route::get('/sales', [SaleController::class, 'index'])->name('sales');
 Route::get('/sales/create', [SaleController::class, 'create']);
 Route::post('/sales', [SaleController::class, 'store'])->name('sales.index');
+
+Route::get('/stocks', [StockController::class, 'index'])->name('stocks');
+Route::get('/stocks/create', [StockController::class, 'create']);
+Route::post('/stocks', [StockController::class, 'store'])->name('stocks.index');
