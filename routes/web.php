@@ -3,8 +3,9 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
-use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PurchaseController;
 
 /*
@@ -46,3 +47,7 @@ Route::post('/items', [ItemController::class, 'store'])->name('items.index');
 Route::get('/purchases', [PurchaseController::class, 'index'])->name('purchases');
 Route::get('/purchases/create', [PurchaseController::class, 'create']);
 Route::post('/purchases', [PurchaseController::class, 'store'])->name('purchases.index');
+
+Route::get('/sales', [SaleController::class, 'index'])->name('sales');
+Route::get('/sales/create', [SaleController::class, 'create']);
+Route::post('/sales', [SaleController::class, 'store'])->name('sales.index');

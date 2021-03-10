@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Item;
+use App\Models\Sale;
 use Inertia\Inertia;
-use App\Models\Purchase;
 use Illuminate\Http\Request;
 
-class PurchaseController extends Controller
+class SaleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +16,10 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        $purchases = Purchase::all();
+        $sales = Sale::all();
 
-        return Inertia::render('Purchases/index', [
-            'purchases' => $purchases,
+        return Inertia::render('Sales/index', [
+            'sales' => $sales,
         ]);
     }
 
@@ -31,7 +32,7 @@ class PurchaseController extends Controller
     {
         $items = Item::all();
 
-        return Inertia::render('Purchases/create', [
+        return Inertia::render('Sales/create', [
             'items' => $items,
         ]);
     }
@@ -46,28 +47,28 @@ class PurchaseController extends Controller
     {
         $request->validate([
             'item_id' => 'required',
-            'purchase_date' => 'required|date',
+            'sale_date' => 'required|date',
             'quantity' => 'required',
-            'cost' => 'required'
+            'price' => 'required'
         ]);
 
-        Purchase::create([
+        Sale::create([
             'item_id'=> $request->item_id,
-            'purchase_date' => $request->purchase_date,
+            'sale_date' => $request->sale_date,
             'quantity' => $request->quantity,
-            'cost' => $request->cost,
+            'price' => $request->price,
         ]);
 
-        return redirect()->route('purchases.index')->with('successMessage', 'Purchase was successfully added!');
+        return redirect()->route('sales.index')->with('successMessage', 'sale was successfully added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Purchase  $purchase
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function show(Purchase $purchase)
+    public function show(Sale $sale)
     {
         //
     }
@@ -75,10 +76,10 @@ class PurchaseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Purchase  $purchase
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function edit(Purchase $purchase)
+    public function edit(Sale $sale)
     {
         //
     }
@@ -87,10 +88,10 @@ class PurchaseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Purchase  $purchase
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Purchase $purchase)
+    public function update(Request $request, Sale $sale)
     {
         //
     }
@@ -98,10 +99,10 @@ class PurchaseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Purchase  $purchase
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Purchase $purchase)
+    public function destroy(Sale $sale)
     {
         //
     }

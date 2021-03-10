@@ -29,6 +29,9 @@
                                 <jet-nav-link :href="route('purchases')" :active="route().current('purchases')">
                                     Purchases
                                 </jet-nav-link>
+                                <jet-nav-link :href="route('sales')" :active="route().current('sales')">
+                                    Sales
+                                </jet-nav-link>
                             </div>
                         </div>
                         <div class="hidden sm:flex sm:items-center sm:ml-6">

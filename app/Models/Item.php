@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Sale;
+use App\Models\Purchase;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\Purchase;
 
 class Item extends Model
 {
@@ -17,10 +18,15 @@ class Item extends Model
     // action on delete of record
     protected $dates = ['deleted_at'];
 
-    protected $table = "items";
+    // protected $table = "items";
 
     public function purchases()
     {
         return $this->hasMany(Purchase::class);
+    }
+    
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
     }
 }
